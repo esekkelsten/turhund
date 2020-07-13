@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
 <link rel="stylesheet" href="assets/css/style.css">
 <title>Turhund 2020</title>
-</head>
+</head> 
 <body>
     <?php include('header.php'); ?>
     <main>
@@ -20,7 +20,7 @@
             <p>Når året er slutt oppsummerer vi og trekker ut premier blant alle som har vært med på tur. I tillegg får du medalje for strevet, alt etter hvilken milepæl dere nådde: bronse for 300 km, sølv for 600 km og gull for 1000 km. Bruker du <a href="https://www.strava.com" target="_blank" rel="noopener noreferrer">mobilappen Strava</a> til å logge turene dine, kan du knytte deg til klubben vår <a href="https://www.strava.com/clubs/nbsktur" target="_blank" rel="noopener noreferrer">NBSK Turhund</a>. Da kan vi dele turer, målsettinger og gi hverandre fortjente klapp på skuldra. Tar du bilder underveis, kan du tagge dem med <a href="https://www.instagram.com/explore/tags/turberner/" target="_blank">#turberner</a> på Instagram.</p>
         </div>
     </main>
-    <?php include 'footer.html' ;?>
+    <?php include('footer.html') ;?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
