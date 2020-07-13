@@ -1,0 +1,20 @@
+body {
+    background-color: beige;
+}
+#tur-nav {
+    background-color: rgb(240, 240, 240);
+}
+#tur-fot {
+    background-color: rgb(240, 240, 240);
+    height: 50px;
+}
+#tur-header {
+    background-color: white;
+    min-height: 100px;
+}
+#tur-form {
+    background-color: white;
+}
+#tur-main {
+    background-color: white;
+}

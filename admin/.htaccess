@@ -1,0 +1,4 @@
+AuthType Basic  
+AuthName "Dette området er kun tilgjenglig for administrator."  
+AuthUserFile /Applications/MAMP/conf/.htpasswd
+require valid-user
