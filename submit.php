@@ -1,3 +1,49 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    require('connection.php');
+    
+    // Prepare an insert statement
+    $sql = "INSERT INTO `2020` (`date`, `ownername`, email, dog, breed, place, distance) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    
+    if($stmt = mysqli_prepare($conn, $sql)){
+        // Bind variables to the prepared statement as parameters
+        mysqli_stmt_bind_param($stmt, "ssssssd", $date, $ownername, $email, $dog, $breed, $place, $distance);
+        
+        // Set parameters
+        $date = $_POST['date'];
+        $ownername = $_POST['ownername'];
+        $email = $_POST['email'];
+        $dog = $_POST['dog'];
+        $breed = $_POST['breed'];
+
+        if ($breed == "breed-other") {
+            $breed = $_POST['breed-other'];
+        }
+
+        $place = $_POST['place'];
+        $distance = $_POST['distance'];
+        
+        // Attempt to execute the prepared statement
+        if(mysqli_stmt_execute($stmt)) {
+            $dbresult = "<div class=\"alert alert-success\" role=\"alert\">Turen er blitt registrert. Du kan se den i resultatlisten.</div>";
+        } else {
+            $dberror = mysqli_error($conn);
+            $dbresult = "<div class=\"alert alert-warning\" role=\"alert\">Noe gikk galt. Vennligst ta kontakt med administrator.<br>Error: $sql. $dberror</div>";
+        }
+    } else {
+        $dberror = mysqli_error($conn);
+        $dbresult = "<div class=\"alert alert-warning\" role=\"alert\">Noe gikk galt. Vennligst ta kontakt med administrator.<br>Error: $sql. $dberror</div>";
+    }
+    
+    // Close statement
+    mysqli_stmt_close($stmt);
+    
+    // Close connection
+    mysqli_close($conn);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="no">
 <head>
@@ -15,7 +61,14 @@
     <main>
         <div class="container" id="tur-form">
             <h2>Turregistrering</h2>
-            <form method="POST" action="form-action.php" enctype="multipart/form-data">
+
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                echo $dbresult;
+            }
+            ?>
+
+            <form method="POST" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data">
                 <div class="form-row">
                     <div class="form-group col-md">
                         <label for="date">Dato</label>
@@ -81,5 +134,3 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-<?php echo htmlentities($_SERVER['PHP_SELF']);
