@@ -15,6 +15,11 @@ if($stmt = mysqli_prepare($conn, $sql)){
     $email = $_POST['email'];
     $dog = $_POST['dog'];
     $breed = $_POST['breed'];
+
+    if ($breed == "breed-other") {
+        $breed = $_POST['breed-other'];
+    }
+
     $place = $_POST['place'];
     $distance = $_POST['distance'];
     

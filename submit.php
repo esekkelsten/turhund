@@ -32,8 +32,14 @@
                             <label for="breed" class="form-check-label">Berner sennenhund</label>
                         </div>
                         <div class="form-check">
-                            <input id="breed" class="form-check-input" type="radio" name="breed" value="true" required>
-                            <label for="breed" class="form-check-label">Annen rase eller blanding</label>
+                            <input id="breed" class="form-check-input" type="radio" name="breed" value="Bernermix" required>
+                            <label for="breed" class="form-check-label">Bernermix</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="breed" class="form-check-input" type="radio" name="breed" value="breed-other" required>
+                            <label for="breed" class="form-check-label">
+                                <input class="form-control form-control-sm" type="text" name="breed-other" placeholder="Annen">
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -75,3 +81,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+<?php echo htmlentities($_SERVER['PHP_SELF']);
